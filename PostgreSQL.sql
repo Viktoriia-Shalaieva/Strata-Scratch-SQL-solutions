@@ -124,3 +124,31 @@ SELECT COUNT(*) AS nmb_movies
 FROM oscar_nominees
 WHERE nominee = 'Abigail Breslin'
 ;
+
+/*
+Find all posts which were reacted to with a heart
+Find all posts which were reacted to with a heart. For such posts output all columns from facebook_posts table.
+
+Tables: facebook_reactions, facebook_posts
+
+facebook_reactions
+poster:int
+friend:int
+reaction:varchar
+date_day:int
+post_id:int
+
+facebook_posts
+post_id:int
+poster:int
+post_text:varchar
+post_keywords:varchar
+post_date:datetime
+*/
+
+SELECT DISTINCT fp.*
+FROM facebook_posts fp
+JOIN facebook_reactions fr
+    ON fp.post_id = fr.post_id
+    AND fr.reaction = 'heart'
+;
