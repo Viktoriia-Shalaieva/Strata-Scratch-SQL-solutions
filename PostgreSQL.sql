@@ -106,3 +106,21 @@ FROM hotel_reviews
 WHERE hotel_name = 'Hotel Arena'
 GROUP BY 1, 2
 ;
+
+/*
+Count the number of movies that Abigail Breslin nominated for oscar
+Count the number of movies that Abigail Breslin was nominated for an oscar.
+
+Table: oscar_nominees
+year: int
+category:varchar
+nominee:varchar
+movie:varchar
+winner:bool
+id:int
+*/
+
+SELECT COUNT(*) AS nmb_movies
+FROM oscar_nominees
+WHERE nominee = 'Abigail Breslin'
+;
